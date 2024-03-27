@@ -1,0 +1,1928 @@
+definitions:
+  domain.Buyer:
+    properties:
+      card_number_id:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+    type: object
+  domain.Carrie:
+    properties:
+      address:
+        type: string
+      cid:
+        type: string
+      company_name:
+        type: string
+      id:
+        type: integer
+      locality_id:
+        type: string
+      telephone:
+        type: string
+    required:
+    - address
+    - cid
+    - company_name
+    - locality_id
+    - telephone
+    type: object
+  domain.CarrieLocality:
+    properties:
+      carries_count:
+        type: integer
+      local_name:
+        type: string
+      locality_id:
+        type: string
+    required:
+    - carries_count
+    - local_name
+    - locality_id
+    type: object
+  domain.Employee:
+    properties:
+      card_number_id:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+      warehouse_id:
+        type: integer
+    type: object
+  domain.EmployeeRequest:
+    properties:
+      card_number_id:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      warehouse_id:
+        type: integer
+    required:
+    - card_number_id
+    - first_name
+    - last_name
+    - warehouse_id
+    type: object
+  domain.EmployeeWithInboundOrders:
+    properties:
+      card_number_id:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      inbound_orders_count:
+        type: integer
+      last_name:
+        type: string
+      warehouse_id:
+        type: integer
+    type: object
+  domain.InboundOrder:
+    properties:
+      employee_id:
+        type: integer
+      id:
+        type: integer
+      order_date:
+        type: string
+      order_number:
+        type: string
+      product_batch_id:
+        type: integer
+      warehouse_id:
+        type: integer
+    type: object
+  domain.InboundOrderRequest:
+    properties:
+      employee_id:
+        type: integer
+      order_date:
+        type: string
+      order_number:
+        type: string
+      product_batch_id:
+        type: integer
+      warehouse_id:
+        type: integer
+    required:
+    - employee_id
+    - order_date
+    - order_number
+    - product_batch_id
+    - warehouse_id
+    type: object
+  domain.Locality:
+    properties:
+      country_name:
+        type: string
+      id:
+        type: string
+      locality_name:
+        type: string
+      province_name:
+        type: string
+    required:
+    - country_name
+    - id
+    - locality_name
+    - province_name
+    type: object
+  domain.Product:
+    properties:
+      description:
+        type: string
+      expiration_rate:
+        type: integer
+      freezing_rate:
+        type: integer
+      height:
+        type: number
+      id:
+        type: integer
+      length:
+        type: number
+      netweight:
+        type: number
+      product_code:
+        type: string
+      product_type_id:
+        type: integer
+      recommended_freezing_temperature:
+        type: number
+      seller_id:
+        type: integer
+      width:
+        type: number
+    required:
+    - description
+    - expiration_rate
+    - freezing_rate
+    - height
+    - length
+    - netweight
+    - product_code
+    - product_type_id
+    - recommended_freezing_temperature
+    - width
+    type: object
+  domain.ProductBatches:
+    properties:
+      batch_number:
+        type: integer
+      current_quantity:
+        type: integer
+      current_temperature:
+        type: integer
+      due_date:
+        type: string
+      id:
+        type: integer
+      initial_quantity:
+        type: integer
+      manufacturing_date:
+        type: string
+      manufacturing_hour:
+        type: string
+      minumum_temperature:
+        type: integer
+      product_id:
+        type: integer
+      section_id:
+        type: integer
+    required:
+    - batch_number
+    - current_quantity
+    - current_temperature
+    - due_date
+    - initial_quantity
+    - manufacturing_date
+    - manufacturing_hour
+    - minumum_temperature
+    - product_id
+    - section_id
+    type: object
+  domain.ProductRecord:
+    properties:
+      id:
+        type: integer
+      last_update_date:
+        type: string
+      product_id:
+        type: integer
+      purchase_price:
+        type: number
+      sale_price:
+        type: number
+    required:
+    - product_id
+    - purchase_price
+    - sale_price
+    type: object
+  domain.ProductRecordRequest:
+    properties:
+      last_update_date:
+        type: string
+      product_id:
+        type: integer
+      purchase_price:
+        type: number
+      sale_price:
+        type: number
+    required:
+    - product_id
+    - purchase_price
+    - sale_price
+    type: object
+  domain.ProductRequest:
+    properties:
+      description:
+        type: string
+      expiration_rate:
+        type: integer
+      freezing_rate:
+        type: integer
+      height:
+        type: number
+      length:
+        type: number
+      netweight:
+        type: number
+      product_code:
+        type: string
+      product_type_id:
+        type: integer
+      recommended_freezing_temperature:
+        type: number
+      seller_id:
+        type: integer
+      width:
+        type: number
+    required:
+    - description
+    - expiration_rate
+    - freezing_rate
+    - height
+    - length
+    - netweight
+    - product_code
+    - product_type_id
+    - recommended_freezing_temperature
+    - width
+    type: object
+  domain.ProductType:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  domain.ProductTypeRequest:
+    properties:
+      name:
+        type: string
+    required:
+    - name
+    type: object
+  domain.Purchase_Orders:
+    properties:
+      buyer_id:
+        type: integer
+      id:
+        type: integer
+      order_date:
+        type: string
+      order_number:
+        type: string
+      order_status_id:
+        type: integer
+      product_record_id:
+        type: integer
+      tracking_code:
+        type: string
+    required:
+    - buyer_id
+    - order_date
+    - order_number
+    - order_status_id
+    - product_record_id
+    - tracking_code
+    type: object
+  domain.QuantitySellerByLocality:
+    properties:
+      locality_id:
+        type: string
+      locality_name:
+        type: string
+      sellers_count:
+        type: integer
+    type: object
+  domain.Report:
+    properties:
+      description:
+        type: string
+      product_id:
+        type: integer
+      records_count:
+        type: integer
+    type: object
+  domain.Section:
+    properties:
+      current_capacity:
+        type: integer
+      current_temperature:
+        type: integer
+      maximum_capacity:
+        type: integer
+      minimum_capacity:
+        type: integer
+      minimum_temperature:
+        type: integer
+      product_type_id:
+        type: integer
+      section_id:
+        type: integer
+      section_number:
+        type: integer
+      warehouse_id:
+        type: integer
+    required:
+    - current_capacity
+    - current_temperature
+    - maximum_capacity
+    - minimum_capacity
+    - minimum_temperature
+    - product_type_id
+    - section_number
+    - warehouse_id
+    type: object
+  domain.SectionReportProducts:
+    properties:
+      product_count:
+        type: integer
+      section_id:
+        description: Section
+        type: integer
+      section_number:
+        type: integer
+    type: object
+  domain.Seller:
+    properties:
+      address:
+        type: string
+      cid:
+        type: integer
+      company_name:
+        type: string
+      id:
+        type: integer
+      locality_id:
+        type: string
+      telephone:
+        type: string
+    required:
+    - address
+    - cid
+    - company_name
+    - locality_id
+    - telephone
+    type: object
+  domain.Warehouse:
+    properties:
+      address:
+        type: string
+      id:
+        type: integer
+      minimum_capacity:
+        type: integer
+      minimum_temperature:
+        type: integer
+      telephone:
+        type: string
+      warehouse_code:
+        type: string
+    required:
+    - address
+    - minimum_capacity
+    - minimum_temperature
+    - telephone
+    - warehouse_code
+    type: object
+  domain.WarehouseRequest:
+    properties:
+      address:
+        type: string
+      minimum_capacity:
+        type: integer
+      minimum_temperature:
+        type: integer
+      telephone:
+        type: string
+      warehouse_code:
+        type: string
+    required:
+    - address
+    - minimum_capacity
+    - minimum_temperature
+    - telephone
+    - warehouse_code
+    type: object
+  web.errorResponse:
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+    type: object
+  web.response:
+    properties:
+      data: {}
+    type: object
+info:
+  contact: {}
+  description: This API was created as part of Mercado Libre's Go backend bootcamp
+    for training purposes.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://developers.mercadolibre.com.ar/es-ar/terminos-y-condiciones
+  title: MeLi Bootcamp API
+  version: "1.0"
+paths:
+  /api/v1/buyers:
+    get:
+      description: Returns a list of all buyers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/domain.Buyer'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: List buyers
+      tags:
+      - Buyers
+    post:
+      consumes:
+      - application/json
+      description: Create buyer
+      parameters:
+      - description: buyers parameters
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Buyer'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Buyer'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create buyer
+      tags:
+      - Buyers
+  /api/v1/buyers/{id}:
+    delete:
+      description: Delete buyer
+      parameters:
+      - description: buyer id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Delete buyer
+      tags:
+      - Buyers
+    get:
+      description: get buyer by id
+      parameters:
+      - description: buyer id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Buyer'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Buyer by id
+      tags:
+      - Buyers
+    patch:
+      consumes:
+      - application/json
+      description: Update buyer
+      parameters:
+      - description: buyer id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: buyer parameters
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Buyer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Buyer'
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Update buyer
+      tags:
+      - Buyers
+  /api/v1/buyers/reportPurchaseOrders:
+    get:
+      description: get report by id or all buyers
+      parameters:
+      - description: Buyer ID
+        in: query
+        name: id
+        type: integer
+      produces:
+      - application/json
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/domain.Buyer'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Purchase orders by buyer and all
+      tags:
+      - Buyers
+  /api/v1/carries:
+    post:
+      consumes:
+      - application/json
+      description: Create carry
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Carrie'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Carrie'
+              type: object
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create carry
+      tags:
+      - Carry
+  /api/v1/employees:
+    get:
+      description: get employees
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/domain.Employee'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: List employees
+      tags:
+      - Employees
+    post:
+      consumes:
+      - application/json
+      description: create employee
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.EmployeeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Employee'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create employee
+      tags:
+      - Employees
+  /api/v1/employees/{id}:
+    delete:
+      description: delete employee by id
+      parameters:
+      - description: Employee Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Delete employee
+      tags:
+      - Employees
+    get:
+      description: get employee by id
+      parameters:
+      - description: Employee Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Employee'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Get employee
+      tags:
+      - Employees
+    patch:
+      consumes:
+      - application/json
+      description: update employee
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.EmployeeRequest'
+      - description: Employee Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Employee'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Update employee
+      tags:
+      - Employees
+  /api/v1/employees/reportInboundOrders:
+    get:
+      description: get employee with inbound orders count
+      parameters:
+      - description: Employee Id
+        in: query
+        name: id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.EmployeeWithInboundOrders'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Employee with inbound orders count
+      tags:
+      - Employees
+  /api/v1/inboundOrders:
+    post:
+      consumes:
+      - application/json
+      description: create inbound order
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.InboundOrderRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.InboundOrder'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create inbound order
+      tags:
+      - Inbound Order
+  /api/v1/localities:
+    post:
+      consumes:
+      - application/json
+      description: Create locality
+      parameters:
+      - description: Locality parameters
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Locality'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Locality'
+              type: object
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create locality
+      tags:
+      - Localities
+  /api/v1/localities/reportCarries:
+    get:
+      description: Returns a list of all carries by locality
+      parameters:
+      - description: locality Id
+        in: query
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/domain.CarrieLocality'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: count carries by locality
+      tags:
+      - Carry
+  /api/v1/localities/reportSellers:
+    get:
+      description: Returns a list of all reports
+      parameters:
+      - description: locality Id
+        in: query
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/domain.QuantitySellerByLocality'
+                  type: array
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: ReportSellers
+      tags:
+      - Localities
+  /api/v1/productBatches:
+    post:
+      consumes:
+      - application/json
+      description: Create Product Batch
+      parameters:
+      - description: Product Batch to Create
+        in: body
+        name: section
+        required: true
+        schema:
+          $ref: '#/definitions/domain.ProductBatches'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/web.response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create Product Batch
+      tags:
+      - Product Batches
+  /api/v1/productRecords/:
+    post:
+      consumes:
+      - application/json
+      description: Creates and returns a single product record
+      parameters:
+      - description: Product Record parameters
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.ProductRecordRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.ProductRecord'
+              type: object
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create product record
+      tags:
+      - Product Records
+  /api/v1/products:
+    get:
+      description: Returns a list of all products
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/domain.Product'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: List products
+      tags:
+      - Products
+  /api/v1/products/:
+    post:
+      consumes:
+      - application/json
+      description: Creates and returns a single product
+      parameters:
+      - description: Product parameters
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.ProductRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Product'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create product
+      tags:
+      - Products
+  /api/v1/products/{id}:
+    delete:
+      description: Deletes the product specified by URL id parameter.
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Delete product
+      tags:
+      - Products
+    get:
+      description: Returns a single product specified by its ID passed as a URL parameter
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Product'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Get product by ID
+      tags:
+      - Products
+    patch:
+      consumes:
+      - application/json
+      description: 'Updates the product specified by URL id parameter with fields
+        passed by request body. All object fields are optional: only the given fields
+        will be updated. Returns updated object.'
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Product parameters
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.ProductRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Product'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Update product
+      tags:
+      - Products
+  /api/v1/products/reportRecords:
+    get:
+      description: Given a product id as a query, it will return the amount of product
+        records for that given product. If given no id, it will return the amount
+        of product records for all products.
+      parameters:
+      - description: Product ID
+        in: query
+        name: id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/domain.Report'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Get product record report
+      tags:
+      - Products
+  /api/v1/products/type:
+    post:
+      consumes:
+      - application/json
+      description: Given a name, creates a product type with that name
+      parameters:
+      - description: Product type
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.ProductTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.ProductType'
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create product type
+      tags:
+      - Products
+  /api/v1/purchaseorders:
+    post:
+      consumes:
+      - application/json
+      description: Create purchase order
+      parameters:
+      - description: buyers parameters
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Purchase_Orders'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Purchase_Orders'
+              type: object
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create purchase order
+      tags:
+      - Purchase Order
+  /api/v1/sections:
+    get:
+      description: Get All Sections
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: List sections
+      tags:
+      - Sections
+    post:
+      consumes:
+      - application/json
+      description: Create section
+      parameters:
+      - description: Section to create
+        in: body
+        name: section
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Section'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/web.response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create section
+      tags:
+      - Sections
+  /api/v1/sections/{id}:
+    delete:
+      description: Delete section
+      parameters:
+      - description: section id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Delete section
+      tags:
+      - Sections
+    get:
+      description: Get Section by Id
+      parameters:
+      - description: section id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Section by id
+      tags:
+      - Sections
+    patch:
+      consumes:
+      - application/json
+      description: Update section
+      parameters:
+      - description: section id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Section to update
+        in: body
+        name: section
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Section'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Update section
+      tags:
+      - Sections
+  /api/v1/sections/reportProducts:
+    get:
+      description: Get the quantity of products of each section or the quantity of
+        products for a determined section
+      parameters:
+      - description: Section id
+        in: query
+        name: id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.SectionReportProducts'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Report Products
+      tags:
+      - Sections
+  /api/v1/sellers:
+    get:
+      description: Returns a list of all sellers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/domain.Seller'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: List sellers
+      tags:
+      - Sellers
+    post:
+      consumes:
+      - application/json
+      description: Create seller
+      parameters:
+      - description: Sellers parameters
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Seller'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Seller'
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create seller
+      tags:
+      - Sellers
+  /api/v1/sellers/{id}:
+    delete:
+      description: Delete seller
+      parameters:
+      - description: seller id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Delete seller
+      tags:
+      - Sellers
+    get:
+      description: get seller by id
+      parameters:
+      - description: seller id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Seller'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Seller by id
+      tags:
+      - Sellers
+    patch:
+      consumes:
+      - application/json
+      description: Update seller
+      parameters:
+      - description: section id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Seller parameters
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Seller'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Seller'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Update seller
+      tags:
+      - Sellers
+  /api/v1/warehouses:
+    post:
+      consumes:
+      - application/json
+      description: Create warehouse
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Warehouse'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Warehouse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Create warehouse
+      tags:
+      - Warehouse
+  /api/v1/warehouses/:
+    get:
+      description: Returns a list of all warehouse
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/domain.Warehouse'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: list warehouse
+      tags:
+      - Warehouse
+  /api/v1/warehouses/{id}:
+    delete:
+      description: delete warehouse by id
+      parameters:
+      - description: Warehouse Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Delete warehouse
+      tags:
+      - Warehouse
+    get:
+      description: Get warehouse by id
+      parameters:
+      - description: Werehouse Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Warehouse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: warehouse
+      tags:
+      - Warehouse
+    patch:
+      consumes:
+      - application/json
+      description: update warehouse
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/domain.WarehouseRequest'
+      - description: Warehouse Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/web.response'
+            - properties:
+                data:
+                  $ref: '#/definitions/domain.Warehouse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/web.errorResponse'
+      summary: Update warehouse
+      tags:
+      - Warehouse
+securityDefinitions:
+  ApiKeyAuth:
+    description: start with Bearer
+    in: header
+    name: x-tiger-token
+    type: apiKey
+swagger: "2.0"
